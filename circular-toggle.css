@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, blue, lightblue);
+    min-height: 100vh;
+    min-width: 100vh;
+}
+.menu {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.toggle {
+    width: 80px;
+    height: 80px;
+    background: white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    border-radius: 50%;
+    font-size: 3em;
+    transition: transform 1.25s;
+    cursor: pointer;
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.15);
+}
+
+.menu li {
+    position: absolute;
+    left: 0;
+    list-style: none;
+    font-size: 2.5em;
+    transform-origin: 200px;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+    transform: rotate(0deg) translateX(180px); 
+}
+
+.menu li a {
+    text-decoration: none;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transform: rotate(calc(360deg / -8 * var(--i)));
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.15);
+    color: #000;
+    transition: .3s;
+
+}
+
+.menu li a:hover {
+    color: greenyellow;
+}
+
+.menu.active li {
+    transform: rotate(calc(360deg / 8 * var(--i)));
+}
+
+.menu.active .toggle {
+   transform: rotate(315deg); 
+}
+
+/* SocialMidias code */
+h6 {
+    padding: 0 auto;
+    font-family: arial;
+    position: absolute;
+    color: transparent;
+    transition: 0.99s;
+
+}
+
+.menu li a h6:hover {
+    padding: 50px;
+    font-size: 20px;
+    color: greenyellow;
+    transform: rotate(360deg) translateY(-50px);
+}
+
+.menu.active li a h6::before {
+    padding: 0;
+    opacity: 10;
+    display: none;
+}
